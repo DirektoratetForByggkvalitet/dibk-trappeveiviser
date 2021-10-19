@@ -5,7 +5,7 @@ The documentation for losen can be found here https://dibk-storybook.firebaseapp
 
 ## Development
 
-You need to link [netliferesearch/losen](https://github.com/netliferesearch/losen) to run this project locally. Head over to you clone of that repo in the terminal and type `yarn link`.
+You need to link [netliferesearch/losen](https://ghttps://github.com/DirektoratetForByggkvalitet/losen) to run this project locally. Head over to you clone of that repo in the terminal and type `yarn link`.
 
 Head back to this repo in you terminal and type `yarn link losen`.
 
@@ -19,7 +19,6 @@ The data for this wizard can be found in `src/api/bus-trappeveiviser.json`.
 
 ## Deploy
 
-The project is hosted on [`Firebase`](https://console.firebase.google.com/u/0/project/dibk-trappeveiviser) :fire:. You need to be invited to it to be able to deploy.
 
 To deploy you need the firebase tools.
 Install it with the following command:
@@ -34,7 +33,7 @@ Then you are ready to type `yarn deploy` :sparkles:
 
 ## Deploy to production
 
-First build this project `npm run build` (make sure you are using latest version of [losen](https://github.com/netliferesearch/losen)).  
+First build this project `npm run build` (make sure you are using latest version of [losen](https://ghttps://github.com/DirektoratetForByggkvalitet/losen).  
 Then navigate to the wizard page in [DIBK staging](https://azr-dibkstaging.azurewebsites.net/).
 Could not login from the last page so you could try and go to https://azr-dibkstaging.azurewebsites.net/tests/veiviser-1/.
 You will find the page in the icon top left and `Forside/Tests/Veiviser 1`
