@@ -106,7 +106,7 @@
                   "heading": "Veiviseren dekker dessverre ikke denne trappetypen",
                   "lead": "<p><strong>Takk for at du prøvde veiviseren!</strong><br />Under kan du se en oppsummering av hva du har svart. Du kan også gå inn på hvert steg i veiviseren og endre svarene dine.</p>",
                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                 }
               ]
             }
@@ -279,7 +279,7 @@
                               "heading": "Trapp uten tilgjengelighetskrav",
                               "lead": "<p>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav.<a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
-                              "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                              "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
                           ]
                         }
@@ -309,7 +309,7 @@
                               "heading": "Trapp, leider eller stige kun til byggverkets drift",
                               "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
-                              "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                              "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
                           ]
                         }
@@ -433,7 +433,7 @@
                                   "heading": "Hovedtrapp i arbeids- og publikumsbygning",
                                   "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en arbeids- og publikumsbygning. <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             }
@@ -842,7 +842,7 @@
                                   "heading": "Trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp",
                                   "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://trappesjekk.dibk.no/checklist/THPIH/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             }
@@ -908,7 +908,7 @@
                                   "heading": "Trapp internt i boenhet - tilgjengelig bolig",
                                   "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet.<a href=\"https://trappesjekk.dibk.no/checklist/TIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             },
@@ -932,7 +932,7 @@
                                   "heading": "Trapp internt i boenhet - ikke-tilgjengelig bolig",
                                   "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://trappesjekk.dibk.no/checklist/TIIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             }
@@ -1033,7 +1033,7 @@
                                   "heading": "Hovedtrapp flere boenheter - tilgjengelig bolig",
                                   "lead": "<p> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/HFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",                                  
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             },
@@ -1057,7 +1057,7 @@
                                   "heading": "Hovedtrapp flere boenheter - ikke-tilgjengelig bolig",
                                   "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             }
@@ -1123,7 +1123,7 @@
                                   "heading": "Sekundær rømningstrapp - tilgjengelig bolig",
                                   "lead": "<p> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
-                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
                               ]
                             },
@@ -1163,7 +1163,7 @@
       "id": "resultatIkkeFerdig",
       "heading": "Du skal aldri se denne resultatsiden",
       "errorheading": "Du har ikke svart på alle spørsmålene",
-      "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+      "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
     }
   ]
 }

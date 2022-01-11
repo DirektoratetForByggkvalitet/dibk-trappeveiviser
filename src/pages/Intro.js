@@ -29,13 +29,13 @@ function Intro({ close, data }) {
           <li>få opp hvilke krav og preaksepterte ytelser som gjelder akkurat denne trappa</li>
         </ul>
         <Primitives.Paragraphs.P>
-        Verktøyet viser hvilke krav og preaksepterte ytelser fra <a href="https://dibk-tekcheck-api.azurewebsites.net/api/sjekkliste">TEK17 § 12-14</a> som gjelder din trapp. Du får blant annet svar på om trappa har krav til tilgjenglighet, og hvilke krav som gjelder bredder, høyder, repos og håndløpere. 
+        Verktøyet viser hvilke krav og preaksepterte ytelser fra <a href="https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/iii/12-14">TEK17 § 12-14</a> som gjelder din trapp. Du får blant annet svar på om trappa har krav til tilgjenglighet, og hvilke krav som gjelder bredder, høyder, repos og håndløpere. 
         </Primitives.Paragraphs.P>
         <Primitives.Paragraphs.P>Lykke til! </Primitives.Paragraphs.P>
         <Primitives.Button.MainButton type="button" onClick={() => close()}>
-          Start
+          Sett i gang
         </Primitives.Button.MainButton>
-        <Primitives.Paragraphs.P><br/><a href="https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/iii/12-14">API (for utviklere)</a></Primitives.Paragraphs.P>
+        <Primitives.Paragraphs.P><br/><a href="https://dibk-tekcheck-api.azurewebsites.net/api/sjekkliste">API (for utviklere)</a></Primitives.Paragraphs.P>
       </IntroMain>
     </Primitives.Wizard>
   );
