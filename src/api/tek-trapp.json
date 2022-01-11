@@ -240,18 +240,18 @@
                       "heading": "Hva skal trappa brukes til?",
                       "options": [
                         {
-                          "id": "drift.ja",
-                          "type": "Answer",
-                          "heading": "Skal brukes til daglig eller til rømning",
-                          "text":"For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilasjonskanal, installasjoner på tak eller skorstein på tak.",
-                          "value": "ja"
-                        },
-                        {
                           "id": "drift.nei",
                           "type": "Answer",
-                          "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
-                          "text": "For eksempel trapp som skal brukes som rømningsvei, tilkomst til lager eller prosessutstyr.",
+                          "heading": "Skal brukes til daglig eller til rømning",
+                          "text":"For eksempel trapp som skal brukes av beboere og gjester til daglig eller til rømning.",
                           "value": "nei"
+                        },
+                        {
+                          "id": "drift.ja",
+                          "type": "Answer",
+                          "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
+                          "text": "For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilajonskanal, installasjoner på tak eller skorstein på tak.",
+                          "value": "ja"
                         }
                       ]
                     },
@@ -270,14 +270,14 @@
                               "id": "driftResultat.text",
                               "type": "Text",
                               "warning": true,
-                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIUB/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a>.</strong>"
+                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav. <a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a>.</strong>"
                             },
                             {
                               "id": "resultatUtenTilgjengelighet",
                               "type": "Result",
                               "text": "ResultatUtenTilgjengelighet",
                               "heading": "Trapp uten tilgjengelighetskrav",
-                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav.<a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIUB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav.<a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
                               "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
@@ -300,14 +300,14 @@
                               "id": "drift.text",
                               "type": "Text",
                               "warning": true,
-                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TLSD/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                             },
                             {
                               "id": "resultatTrappleiderstige",
                               "type": "Result",
                               "text": "ResultatTrappleiderstige",
                               "heading": "Trapp, leider eller stige kun til byggverkets drift",
-                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
                               "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
@@ -424,14 +424,14 @@
                                   "id": "aopEnesteTrapp.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du en hovedtrapp i en arbeids- og publikumsbygning.  <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/HAP/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du en hovedtrapp i en arbeids- og publikumsbygning.  <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatHovedtrappAOP",
                                   "type": "Result",
                                   "text": "ResultatHovedtrappAOP",
                                   "heading": "Hovedtrapp i arbeids- og publikumsbygning",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en arbeids- og publikumsbygning. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/HAP/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en arbeids- og publikumsbygning. <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -488,7 +488,7 @@
                                   "id": "aopAdkomst.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en hovedtrapp i arbeids- og publikumsbygning. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/HAP/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en hovedtrapp i arbeids- og publikumsbygning. <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -513,7 +513,7 @@
                                   "id": "aopAdkomst.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/THPIH/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://trappesjekk.dibk.no/checklist/THPIH/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -578,7 +578,7 @@
                                   "id": "aopTrappebruk.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIUB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav. <a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -603,7 +603,7 @@
                                   "id": "aopTrappebruk.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -771,7 +771,7 @@
                                   "id": "boligbygningDrift.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -833,14 +833,14 @@
                                   "id": "aopAdkomst.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/THPIH/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://trappesjekk.dibk.no/checklist/THPIH/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatHovedlosningAOP",
                                   "type": "Result",
                                   "text": "ResultatHovedlosningAOP",
                                   "heading": "Trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/THPIH/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://trappesjekk.dibk.no/checklist/THPIH/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -899,14 +899,14 @@
                                   "id": "boligbygningInngangsplan.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet. <a href=\"https://trappesjekk.dibk.no/checklist/TIB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatInterntrappTilgjengelig",
                                   "type": "Result",
                                   "text": "ResultatInterntrappTilgjengelig",
                                   "heading": "Trapp internt i boenhet - tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet.<a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet.<a href=\"https://trappesjekk.dibk.no/checklist/TIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -923,14 +923,14 @@
                                   "id": "boligbygningInngangsplan.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIIB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://trappesjekk.dibk.no/checklist/TIIB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatInterntrappIkkeTilgjengelig",
                                   "type": "Result",
                                   "text": "ResultatInterntrappTilgjengelig",
                                   "heading": "Trapp internt i boenhet - ikke-tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://trappesjekk.dibk.no/checklist/TIIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1024,14 +1024,14 @@
                                   "id": "boligbygningHovedtrapp.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/HFB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/HFB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatBoligHovedtrappFlereboenheterTilgjengelig",
                                   "type": "Result",
                                   "text": "resultatBoligSekundaerTilgjengelig",
                                   "heading": "Hovedtrapp flere boenheter - tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/HFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",                                  
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/HFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",                                  
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1048,14 +1048,14 @@
                                   "id": "boligbygningHovedtrappNei.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/SRTIB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTIB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatHovedtrappFlereIkkeTilgjengelig",
                                   "type": "Result",
                                   "text": "resultatHovedtrappFlereIkkeTilgjengelig",
                                   "heading": "Hovedtrapp flere boenheter - ikke-tilgjengelig bolig",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/SRTIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1114,14 +1114,14 @@
                                   "id": "boligbygningSekundaer.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/SRTB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatSekundaerRomningstrappTilgjengelig",
                                   "type": "Result",
                                   "text": "resultatSekundaerRomningstrappTilgjengelig",
                                   "heading": "Sekundær rømningstrapp - tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/SRTB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om du må søke eller ikke. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1138,7 +1138,7 @@
                                   "id": "boligbygningSekundaerNei.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav. <a href=\"https://dibk-tekcheck.azurewebsites.net/checklist/TIUB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav. <a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",

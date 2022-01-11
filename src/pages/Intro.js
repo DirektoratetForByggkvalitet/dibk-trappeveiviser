@@ -20,23 +20,22 @@ function Intro({ close, data }) {
   return (
     <Primitives.Wizard>
       <IntroMain>
-        <Primitives.Heading.H1>Sjekkliste for prosjektering av trapp i nybygg</Primitives.Heading.H1>
-        <Primitives.Paragraphs.Lead>Skal du prosjektere trapp i et nybygg? Lurer du på hvilke krav i byggteknisk forskrift som er relevante for din trapp?</Primitives.Paragraphs.Lead>
-        <Primitives.Heading.H2>Slik går du frem:</Primitives.Heading.H2>
+        <Primitives.Heading.H1>Skal du prosjektere trapp i et nybygg? </Primitives.Heading.H1>
+        <Primitives.Paragraphs.Lead>Finn ut hvilke krav fra trappebestemmelsen i TEK17 som gjelder akkurat din trapp.</Primitives.Paragraphs.Lead>
+        <Primitives.Heading.H2>Slik fungerer det:</Primitives.Heading.H2>
         <ul>
-          <li>Velg deg ut en trapp du holder på å prosjektere</li>
-          <li>Svar på noen spørsmål om plasseringen og egenskapene til trappa</li>
-          <li>Få opp en tilpasset sjekkliste med de kravene som må oppfylles fra trappebestemmelsen i TEK17</li>
+          <li>velg ut én trapp du skal prosjektere</li>
+          <li>svar på spørsmål om hvor trappa skal plasseres og hvem som skal bruke den</li>
+          <li>få opp hvilke krav og preaksepterte ytelser som gjelder akkurat denne trappa</li>
         </ul>
         <Primitives.Paragraphs.P>
-        Sjekklisten dekker alle relevante krav  fra TEK17 § 12-14. Dette inkluderer alle relevante preaksepterte ytelelser, og relevante krav til tilgjengelighet og universell utforming.
+        Verktøyet viser hvilke krav og preaksepterte ytelser fra <a href="https://dibk-tekcheck-api.azurewebsites.net/api/sjekkliste">TEK17 § 12-14</a> som gjelder din trapp. Du får blant annet svar på om trappa har krav til tilgjenglighet, og hvilke krav som gjelder bredder, høyder, repos og håndløpere. 
         </Primitives.Paragraphs.P>
         <Primitives.Paragraphs.P>Lykke til! </Primitives.Paragraphs.P>
         <Primitives.Button.MainButton type="button" onClick={() => close()}>
-          Start veiviseren
+          Start
         </Primitives.Button.MainButton>
-        <Primitives.Paragraphs.P><br/>DETTE ER EN TESTVERSJON. OPPDAGER DU FEIL ELLER MANGLER? SEND EN E-POST TIL <a href="mailto:roa@dibk.no">ROA@DIBK.NO</a> </Primitives.Paragraphs.P>
-        <Primitives.Paragraphs.P><br/><a href="https://dibk-tekcheck-api.azurewebsites.net/api/sjekkliste">Api for sjekklisten</a></Primitives.Paragraphs.P>
+        <Primitives.Paragraphs.P><br/><a href="https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/iii/12-14">API (for utviklere)</a></Primitives.Paragraphs.P>
       </IntroMain>
     </Primitives.Wizard>
   );
