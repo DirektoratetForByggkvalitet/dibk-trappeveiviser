@@ -4,48 +4,6 @@
     "name": "trapp",
     "footer": "Veiviser - trapp"
   },
-  "computed": {
-    "grenser": {
-      "type": "or",
-      "clauses": [
-        {
-          "field": "nabogrense",
-          "operator": "eq",
-          "value": "ja"
-        },
-        {
-          "field": "byggegrenseOk",
-          "operator": "eq",
-          "value": "ja"
-        },
-        {
-          "field": "byggegrenseOk",
-          "operator": "eq",
-          "value": "tilatelse"
-        }
-      ]
-    },
-    "visAreal": {
-      "type": "or",
-      "clauses": [
-        {
-          "field": "hoyestePunkt",
-          "operator": "eq",
-          "value": "under"
-        },
-        {
-          "field": "hoyestePunkt",
-          "operator": "eq",
-          "value": "overOk"
-        },
-        {
-          "field": "areal",
-          "operator": "eq",
-          "value": "ja"
-        }
-      ]
-    }
-  },
   "schema": [
     {
       "id": "kartlegging",
@@ -300,14 +258,14 @@
                               "id": "drift.text",
                               "type": "Text",
                               "warning": true,
-                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                             },
                             {
                               "id": "resultatTrappleiderstige",
                               "type": "Result",
                               "text": "ResultatTrappleiderstige",
                               "heading": "Trapp, leider eller stige kun til byggverkets drift",
-                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
                               "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
@@ -457,7 +415,7 @@
                           "property": "aopAdkomst",
                           "type": "Radio",
                           "heading": "Skal trappa være primær adkomst for én eller flere brukere til minst ett rom eller én funksjon i hovedløsningen?",
-                          "text": "<p>Det kan være flere hovedtrapper om ulike rom/funksjoner eller ulike brukere har ulike primære hovedadkomster.</p<p>Har bygningen to helt likeverdige trapper kan du velge hvilken trapp som skal være hovedtrapp.</p>",
+                          "text": "<p>Det kan være flere hovedtrapper om ulike rom/funksjoner eller ulike brukere har ulike primære hovedadkomster.</p",
                           "options": [
                                 {
                                   "id": "aopAdkomst.ja",
@@ -603,7 +561,7 @@
                                   "id": "aopTrappebruk.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -684,30 +642,96 @@
                       ]
                     },
                     {
-                      "id": "fritidsBoligEn",
-                      "type": "Branch",
-                      "branches": [
-                        {
-                          "test": {
+                      "id": "fritidsbolig",
+                      "type": "Group",
+                      "property": "fritidsbolig",
+                      "simple": true,
+                      "show": {
+                        "type": "or",
+                        "clauses": [
+                          {
                             "field": "boligType",
                             "operator": "eq",
                             "value": "fritidsboligen"
-                          },
-                          "children": [
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "fritidsbolig",
+                          "property": "fritidsbolig",
+                          "type": "Radio",
+                          "heading": "Hva skal  trappa brukes til?",
+                          "options": [
                             {
-                              "id": "fritidsBoligEn.error",
-                              "type": "Error",
-                              "children": [
-                                {
-                                  "id": "fritidsBoligEn.text",
-                                  "type": "Text",
-                                  "text": "Veiviseren dekker dessverre ikke fritidsbolig med én boenhet foreløpig."
-                                }
-                              ]
+                              "id": "fritidsbolig.romning",
+                              "type": "Answer",
+                              "heading": "Skal brukes til daglig eller til rømning",
+                              "text": "For eksempel trapp som skal brukes av beboere og  gjester til daglig eller til rømning.",
+                              "value": "romning"
                             },
                             {
-                              "type": "Reference",
-                              "nodeId": "resultatDekkerIkkeDeg"
+                              "id": "fritidsbolig.drift",
+                              "type": "Answer",
+                              "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
+                              "text":"For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilasjonskanal, installasjoner på tak eller skorstein på tak.",
+                              "value": "drift"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "fritidsbolig.branch",
+                          "type": "Branch",
+                          "branches": [
+                            {
+                              "test": {
+                                "field": "fritidsbolig",
+                                "operator": "eq",
+                                "value": "drift"
+                              },
+                              "children": [
+                                {
+                                  "id": "fritidsbolig.text",
+                                  "type": "Text",
+                                  "warning": true,
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                },
+                                {
+                                  "type": "Reference",
+                                  "nodeId": "resultatTrappleiderstige"
+
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "fritidsbolig.branch",
+                          "type": "Branch",
+                          "branches": [
+                            {
+                              "test": {
+                                "field": "fritidsbolig",
+                                "operator": "eq",
+                                "value": "romning"
+                              },
+                              "children": [
+                                {
+                                  "id": "fritidsbolig.text",
+                                  "type": "Text",
+                                  "warning": true,
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp i fritidsbolig med én boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/TFB/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                },
+                                {
+                                  "id": "resultatfritidsboligen",
+                                  "type": "Result",
+                                  "text": "ResultatFritidsboligen",
+                                  "heading": "Trapp i fritidsbolig med én boenhet",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i fritidsbolig med én boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/TFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "errorheading": "Du har ikke svart på alle spørsmålene",
+                                  "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -741,18 +765,18 @@
                           "heading": "Hva skal  trappa brukes til?",
                           "options": [
                             {
-                              "id": "boligbygningDrift.nei",
+                              "id": "boligbygningDrift.romning",
                               "type": "Answer",
                               "heading": "Skal brukes til daglig eller til rømning",
                               "text": "For eksempel trapp som skal brukes av beboere og  gjester til daglig eller til rømning.",
-                              "value": "nei"
+                              "value": "romning"
                             },
                             {
-                              "id": "boligbygningDrift.ja",
+                              "id": "boligbygningDrift.drift",
                               "type": "Answer",
                               "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
                               "text":"For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilasjonskanal, installasjoner på tak eller skorstein på tak.",
-                              "value": "ja"
+                              "value": "drift"
                             }
                           ]
                         },
@@ -764,14 +788,14 @@
                               "test": {
                                 "field": "boligbygningDrift",
                                 "operator": "eq",
-                                "value": "ja"
+                                "value": "drift"
                               },
                               "children": [
                                 {
                                   "id": "boligbygningDrift.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -792,7 +816,7 @@
                       "show": {
                         "field": "boligbygningDrift",
                         "operator": "eq",
-                        "value": "nei"
+                        "value": "romning"
                       },
                       "children": [
                         {
