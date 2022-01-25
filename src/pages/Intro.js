@@ -31,7 +31,7 @@ function Intro({ close, data }) {
         <Primitives.Paragraphs.P>
         Verktøyet viser hvilke krav og preaksepterte ytelser fra <a href="https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/iii/12-14">TEK17 § 12-14</a> som gjelder din trapp. Du får blant annet svar på om trappa har krav til tilgjenglighet, og hvilke krav som gjelder bredder, høyder, repos og håndløpere. 
         </Primitives.Paragraphs.P>
-        <Primitives.Paragraphs.P>Lykke til! </Primitives.Paragraphs.P>
+        <Primitives.Paragraphs.P>Selv om verktøyet hjelper deg med å finne kravene, er det fortsatt den som prosjekterer som har ansvaret for den planlagte løsningen. </Primitives.Paragraphs.P>
         <Primitives.Button.MainButton type="button" onClick={() => close()}>
           Sett i gang
         </Primitives.Button.MainButton>

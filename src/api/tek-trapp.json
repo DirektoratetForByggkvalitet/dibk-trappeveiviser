@@ -9,6 +9,7 @@
       "id": "kartlegging",
       "type": "Page",
       "heading": "Om trappa og bygningen",
+      "lead": "",
       "children": [
         {
           "id": "trappePlassering",
@@ -54,7 +55,7 @@
                     {
                       "id": "trappePlassering.text",
                       "type": "Text",
-                      "text": "Veiviseren dekker dessverre ikke utendørs trapper som er selvstendige konstruksjoner. Du kan lese mer om kravene til trapp i uteareal som du finner i TEK17 § 8-9."
+                      "text": "Veiviseren dekker dessverre ikke utendørs trapper som er selvstendige konstruksjoner. Du kan lese mer om kravene til trapp i uteareal i <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/8/8-9/\" target=\"_blank\">TEK17 § 8-9.</a>"
                     }
                   ]
                 },
@@ -84,37 +85,345 @@
               "id": "bygningsType",
               "property": "bygningsType",
               "type": "Radio",
-              "heading": "Hva skal bygningen brukes til?",
-              "text": "",
+              "heading": "Hva slags bygning skal trappa være i?",
               "options": [
-                    {
+                {
+                  "id": "bygningsType.kombo",
+                  "type": "Answer",
+                  "heading": "Kombinasjonsbygg",
+                  "text": "For eksempel bygning med både arbeidsplasser og boliger.",
+                  "value": "kombo"
+            },
+                {
+                  "id": "bygningsType.aop",
+                  "type": "Answer",
+                  "heading": "Arbeids- eller publikumsbygning",
+                  "text": "Byggverk med arbeidsplasser, virksomhet rettet mot publikum eller overnattingsvirksomhet. For eksempel: hotell, campinghytte, kontor, offentlige bygg, offentlig parkeringshus, idrettshaller eller betjent lager.",
+                  "value": "aop"
+                },
+                {
                       "id": "bygningsType.bolig",
                       "type": "Answer",
-                      "heading": "Kun som bolig",
-                      "text": "Helårsbolig eller fritidsbolig",
+                      "heading": "Bolig",
+                      "text": "Helårsbolig eller fritidsbolig.",
                       "value": "bolig"
                     },
-                    {
-                      "id": "bygningsType.aop",
-                      "type": "Answer",
-                      "heading": "Kun som arbeids- eller publikumsbygning",
-                      "text": "Byggverk med arbeidsplasser, virksomhet rettet mot publikum eller overnattingsvirksomhet. For eksempel: hotell, campinghytte, kontor, offentlige bygg, offentlig parkeringshus, idrettshaller eller betjent lager.",
-                      "value": "aop"
-                    },
+
                     {
                       "id": "bygningsType.verken",
                       "type": "Answer",
                       "heading": "Verken bolig, eller arbeids- og publikumsbygning",
                       "text": "Byggverk som verken inneholder boliger, arbeidsplasser, virksomhet rettet mot publikum eller overnattingsvirksomhet. For eksempel: ubetjent lager.",
                       "value": "verken"
+                    }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "bygningsType",
+                    "operator": "eq",
+                    "value": "komboORIGINAL"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "error.bygningsType.kombo",
+                  "type": "Error",
+                  "show": {
+                    "field": "bygningsType",
+                    "operator": "eq",
+                    "value": "kombo"
+                  },
+                  "children": [
+                    {
+                      "id": "error.bygningsType.kombo",
+                      "type": "Text",
+                      "text": "Beklager men veiviseren dekker ikke kombinasjonsbygg ennå."
+                    }
+                  ]
+                },
+                {
+                  "type": "Reference",
+                  "nodeId": "resultatDekkerIkkeDeg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "funksjonerTilTrapp",
+          "type": "Group",
+          "property": "funksjonerTilTrapp",
+          "simple": true,
+          "show": {
+            "field": "bygningsType",
+            "operator": "eq",
+            "value": "kombo"
+          },
+          "children": [
+            {
+              "id": "funksjonerTilTrapp",
+              "property": "funksjonerTilTrapp",
+              "type": "Radio",
+              "heading": "Skal trappa være adkomst til funksjoner knyttet til arbeid og/eller publikum?",
+              "text": "",
+              "options": [
+                     {
+                      "id": "funksjonerTilTrapp.aop",
+                      "type": "Answer",
+                      "heading": "Ja, hele trappa",
+                      "text": "For eksempel der arbeidstakere skal bruke trappa fra nederste til øverste etasje, selv om trappa er adkomst til boligfunksjoner og/eller driftsfunksjoner.",
+                      "value": "aop"
+                    },
+                {
+                      "id": "funksjonerTilTrapp.deleraop",
+                      "type": "Answer",
+                      "heading": "Ja, deler av trappa",
+                      "text": "For eksempel der arbeidstakere skal bruke trappa i de nederste etasjene, og det er boenheter i de øverste etasjene.",
+                      "value": "deleraop"
                     },
                     {
-                      "id": "bygningsType.kombo",
+                      "id": "funksjonerTilTrapp.ingen",
                       "type": "Answer",
-                      "heading": "Kombinasjonsbygg",
-                      "text": "For eksempel bygning med både boliger og forretningsvirksomhet",
-                      "value": "kombo"
+                      "heading": "Nei, trappa skal ikke være adkomst til funksjoner knyttet til arbeid og/eller publikum",
+                      "text": "For eksempel trapp som er adkomst til boligfunksjoner og/eller driftsfunksjoner.",
+                      "value": "verken"
+                    }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "funksjonerTilTrapp",
+                "operator": "eq",
+                "value": "aop"
+              },
+              "children": [
+                {
+                  "id": "funksjonAop.error",
+                  "type": "Error",
+                  "children": [
+                    {
+                      "id": "funksjonAop.error.msg",
+                      "type": "Text",
+                      "warning": true,
+                      "text":
+                        "Hele trappa må følge samme krav som arbeids- og publikumsbygg. Velg «Arbeid- og publikumsbygg» i forrige spørsmål."
+                    }
+                  ]
                 }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "funksjonerTilTrapp",
+                "operator": "eq",
+                "value": "deleraop"
+              },
+              "children": [
+                {
+                  "id": "funksjonDelerAop.error",
+                  "type": "Error",
+                  "children": [
+                    {
+                      "id": "funksjonDelerAop.error.msg",
+                      "type": "Text",
+                      "warning": true,
+                      "text":
+                        "De delene av trappa som skal brukes av arbeidstakere og publikum, må følge samme krav som arbeids- og publikumsbygg. Velg «Arbeid- og publikumsbygg» i forrige spørsmål. Fortsett veiviseren for å finne ut hvilke  krav som gjelder andre deler av trappa."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "deAndreDelene",
+          "type": "Group",
+          "property": "deAndreDelene",
+          "simple": true,
+          "show": {
+            "type": "or",
+            "clauses": [
+              {
+                "field": "funksjonerTilTrapp",
+                "operator": "eq",
+                "value": "deleraop"
+              }
+            ]
+          },
+          "children": [
+            {
+              "id": "deAndreDelene",
+              "property": "deAndreDelene",
+              "type": "Radio",
+              "heading": "Hva skal de andre delene av trappa være adkomst til?",
+              "text": "Dersom flere av svaraltenativer gjelder, kan du trykke på disse hver for seg.",
+              "options": [
+                     {
+                      "id": "deAndreDelene.bo",
+                      "type": "Answer",
+                      "heading": "Enkelte deler skal kun være adkomst til boligfunksjoner",
+                      "text": "For eksempel trapper som forbinder etasjer som skal brukes av beboere. Dette inkluderer for eksempel adkomst til bod i fellesareal eller parkeringskjeller.",
+                      "value": "bo"
+                    },
+                {
+                      "id": "deAndreDelene.bodrift",
+                      "type": "Answer",
+                      "heading": "Enkelte deler skal både være adkomst til boligfunksjoner og driftsfunksjoner",
+                      "text": "For eksempel trapper som forbinder etasjer som skal brukes av både beboere og til drift av boliger.",
+                      "value": "bodrift"
+                    },
+                    {
+                      "id": "deAndreDelene.drift",
+                      "type": "Answer",
+                      "heading": "Enkelte deler skal utelukkende være adkomst til drift, og/eller være adkomst til areal som ikke er måleverdig.",
+                      "text": "For eksempel adkomst til bygningteknisk installasjon, sjakter eller skorstein",
+                      "value": "drift"
+                    }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "field": "deAndreDelene",
+                    "operator": "eq",
+                    "value": "bo"
+                  },
+                  "children": [
+                    {
+                      "id": "andreDelerBo.error",
+                      "type": "Error",
+                      "children": [
+                        {
+                          "id": "andreDelerBo.error.msg",
+                          "type": "Text",
+                          "warning": true,
+                          "text":
+                            "De delene av trappa som er adkomst til kun boligfunksjoner må følge samme krav som til bolig. Velg svaralternativet «Bolig» for denne delen av trappa."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "field": "deAndreDelene",
+                    "operator": "eq",
+                    "value": "bodrift"
+                  },
+                  "children": [
+                    {
+                      "id": "andreDelerBoDrift.error",
+                      "type": "Error",
+                      "children": [
+                        {
+                          "id": "andreDelerBoDrift.error.msg",
+                          "type": "Text",
+                          "warning": true,
+                          "text":
+                            "De delene av trappa som skal være adkomst til både boligfunksjoner og drift, må følge samme krav som til bolig. Velg svaralternativet «Bolig» for denne delen av trappa."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "field": "deAndreDelene",
+                    "operator": "eq",
+                    "value": "drift"
+                  },
+                  "children": [
+                    {
+                      "id": "andreDelerDrift.error",
+                      "type": "Error",
+                      "children": [
+                        {
+                          "id": "andreDelerDrift.error.msg",
+                          "type": "Text",
+                          "warning": true,
+                          "text":
+                            "Ut fra dine svar har en del av trappa verken funksjoner for arbeid, publikum eller bolig. Dersom dette stemmer kan du velge svaralternativet «Verken bolig, eller arbeids- og publikumsbygning» for denne delen av trappa. Dersom dette ikke stemmer har du dessverre en trapp som ikke dekkes av denne veiviseren."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "deAndreDelene",
+          "type": "Group",
+          "property": "deAndreDelene",
+          "simple": true,
+          "show": {
+            "field": "funksjonerTilTrapp",
+            "operator": "eq",
+            "value": "deleraop"
+          },
+          "children": [
+            {
+              "id": "deAndreDelene",
+              "property": "deAndreDelene",
+              "type": "Radio",
+              "heading": "Skal hele trappa brukes av funksjoner for arbeid og publikum?",
+              "text": "Dersom <strong>hele</strong> trappa skal benyttes av funksjoner for arbeid og publikum er det disse kravene som gjelder, selv om trappa også skal brukes til boliger eller drift.",
+              "options": [
+                     {
+                      "id": "kombinasjon.aop",
+                      "type": "Answer",
+                      "heading": "Ja",
+                      "text": "",
+                      "value": "TESTaop"
+                    },
+                {
+                      "id": "kombinasjon.bolig",
+                      "type": "Answer",
+                      "heading": "Nei, kun deler skal brukes til slike funksjoner",
+                      "text": "",
+                      "value": "TESTbolig"
+                    },
+                    {
+                      "id": "kombinasjon.bolig",
+                      "type": "Answer",
+                      "heading": "Nei, trappa skal brukes til andre funksjoner",
+                      "text": "",
+                      "value": "TESTbolig2"
+                    }
               ]
             },
             {
@@ -125,9 +434,220 @@
                     "type": "or",
                     "clauses": [
                       {
+                        "field": "kombinasjon",
+                        "operator": "eq",
+                        "value": "komboORIGINAL"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "id": "error.bygningsType.kombo",
+                      "type": "Error",
+                      "show": {
                         "field": "bygningsType",
                         "operator": "eq",
                         "value": "kombo"
+                      },
+                      "children": [
+                        {
+                          "id": "error.bygningsType.kombo",
+                          "type": "Text",
+                          "text": "Beklager men veiviseren dekker ikke kombinasjonsbygg ennå."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Reference",
+                      "nodeId": "resultatDekkerIkkeDeg"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "neiIkkeArbeid",
+          "type": "Group",
+          "property": "neiIkkeArbeid",
+          "simple": true,
+          "show": {
+            "type": "or",
+            "clauses": [
+              {
+                "field": "funksjonerTilTrapp",
+                "operator": "eq",
+                "value": "verken"
+              }
+            ]
+          },
+          "children": [
+            {
+              "id": "neiIkkeArbeid",
+              "property": "neiIkkeArbeid",
+              "type": "Radio",
+              "heading": "Hva skal trappa være adkomst til?",
+              "text": "Dersom flere av svaraltenativer gjelder, kan du trykke på disse hver for seg.",
+              "options": [
+                     {
+                      "id": "neiIkkeArbeid.bo",
+                      "type": "Answer",
+                      "heading": "Enkelte deler skal kun være adkomst til boligfunksjoner",
+                      "text": "For eksempel trapper som forbinder etasjer som skal brukes av beboere. Dette inkluderer for eksempel adkomst til bod i fellesareal eller parkeringskjeller.",
+                      "value": "bo"
+                    },
+                {
+                      "id": "neiIkkeArbeid.bodrift",
+                      "type": "Answer",
+                      "heading": "Enkelte deler skal både være adkomst til boligfunksjoner og driftsfunksjoner",
+                      "text": "For eksempel trapper som forbinder etasjer som skal brukes av både beboere og til drift av boliger.",
+                      "value": "bodrift"
+                    },
+                    {
+                      "id": "neiIkkeArbeid.drift",
+                      "type": "Answer",
+                      "heading": "Enkelte deler skal utelukkende være adkomst til drift, og/eller være adkomst til areal som ikke er måleverdig.",
+                      "text": "For eksempel adkomst til bygningteknisk installasjon, sjakter eller skorstein",
+                      "value": "drift"
+                    }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "field": "neiIkkeArbeid",
+                    "operator": "eq",
+                    "value": "bo"
+                  },
+                  "children": [
+                    {
+                      "id": "neiIkkeArbeid.error",
+                      "type": "Error",
+                      "children": [
+                        {
+                          "id": "andrneiIkkeArbeideDelerBo.error.msg",
+                          "type": "Text",
+                          "warning": true,
+                          "text":
+                            "De delene av trappa som er adkomst til kun boligfunksjoner må følge samme krav som til bolig. Velg svaralternativet «Bolig» for denne delen av trappa."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "field": "neiIkkeArbeid",
+                    "operator": "eq",
+                    "value": "bodrift"
+                  },
+                  "children": [
+                    {
+                      "id": "neiIkkeArbeid.error",
+                      "type": "Error",
+                      "children": [
+                        {
+                          "id": "neiIkkeArbeid.error.msg",
+                          "type": "Text",
+                          "warning": true,
+                          "text":
+                            "De delene av trappa som skal være adkomst til både boligfunksjoner og drift, må følge samme krav som til bolig. Velg svaralternativet «Bolig» for denne delen av trappa."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "field": "neiIkkeArbeid",
+                    "operator": "eq",
+                    "value": "drift"
+                  },
+                  "children": [
+                    {
+                      "id": "neiIkkeArbeid.error",
+                      "type": "Error",
+                      "children": [
+                        {
+                          "id": "neiIkkeArbeid.error.msg",
+                          "type": "Text",
+                          "warning": true,
+                          "text":
+                            "Ut fra dine svar har en del av trappa verken funksjoner for arbeid, publikum eller bolig. Dersom dette stemmer kan du velge svaralternativet «Verken bolig, eller arbeids- og publikumsbygning» for denne delen av trappa. Dersom dette ikke stemmer har du dessverre en trapp som ikke dekkes av denne veiviseren."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "deAndreDelene",
+          "type": "Group",
+          "property": "deAndreDelene",
+          "simple": true,
+          "show": {
+            "field": "funksjonerTilTrapp",
+            "operator": "eq",
+            "value": "deleraop"
+          },
+          "children": [
+            {
+              "id": "deAndreDelene",
+              "property": "deAndreDelene",
+              "type": "Radio",
+              "heading": "Skal hele trappa brukes av funksjoner for arbeid og publikum?",
+              "text": "Dersom <strong>hele</strong> trappa skal benyttes av funksjoner for arbeid og publikum er det disse kravene som gjelder, selv om trappa også skal brukes til boliger eller drift.",
+              "options": [
+                     {
+                      "id": "kombinasjon.aop",
+                      "type": "Answer",
+                      "heading": "Ja",
+                      "text": "",
+                      "value": "TESTaop"
+                    },
+                {
+                      "id": "kombinasjon.bolig",
+                      "type": "Answer",
+                      "heading": "Nei, kun deler skal brukes til slike funksjoner",
+                      "text": "",
+                      "value": "TESTbolig"
+                    },
+                    {
+                      "id": "kombinasjon.bolig",
+                      "type": "Answer",
+                      "heading": "Nei, trappa skal brukes til andre funksjoner",
+                      "text": "",
+                      "value": "TESTbolig2"
+                    }
+              ]
+            },
+            {
+              "type": "Branch",
+              "branches": [
+                {
+                  "test": {
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kombinasjon",
+                        "operator": "eq",
+                        "value": "komboORIGINAL"
                       }
                     ]
                   },
@@ -195,19 +715,19 @@
                       "id": "drift",
                       "property": "drift",
                       "type": "Radio",
-                      "heading": "Hva skal trappa brukes til?",
+                      "heading": "Hva skal denne delen av trappa være adkomst til?",
                       "options": [
                         {
                           "id": "drift.nei",
                           "type": "Answer",
-                          "heading": "Skal brukes til daglig eller til rømning",
-                          "text":"For eksempel trapp som skal brukes av beboere og gjester til daglig eller til rømning.",
+                          "heading": "Skal forbinde etasjer eller areal som er måleverdig, eller brukes til rømning",
+                          "text":"For eksempel trapp som forbinder første og andre etasje, hvor begge etasjene skal ha måleverdig areal.",
                           "value": "nei"
                         },
                         {
                           "id": "drift.ja",
                           "type": "Answer",
-                          "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
+                          "heading": "Skal utelukkende være adkomst til areal som ikke er måleverdig, og/eller brukes til bygningens drift",
                           "text": "For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilajonskanal, installasjoner på tak eller skorstein på tak.",
                           "value": "ja"
                         }
@@ -235,7 +755,7 @@
                               "type": "Result",
                               "text": "ResultatUtenTilgjengelighet",
                               "heading": "Trapp uten tilgjengelighetskrav",
-                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav.<a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp uten tilgjengelighetskrav.<a href=\"https://trappesjekk.dibk.no/checklist/TIUB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
                               "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
@@ -258,14 +778,14 @@
                               "id": "drift.text",
                               "type": "Text",
                               "warning": true,
-                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                              "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart og/eller er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                             },
                             {
                               "id": "resultatTrappleiderstige",
                               "type": "Result",
                               "text": "ResultatTrappleiderstige",
                               "heading": "Trapp, leider eller stige kun til byggverkets drift",
-                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                              "lead": "<p>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                               "errorheading": "Du har ikke svart på alle spørsmålene",
                               "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                             }
@@ -317,7 +837,7 @@
                       "property": "aopHovedlosning",
                       "type": "Radio",
                       "heading": "Skal trappa være en del av hovedløsningen?",
-                      "text": "<p>Hovedløsningen er den delen av byggverket som skal kunne brukes av:<ul><li>publikum</li><li>arbeidstakere som har arbeidsplassen sin i bygningen</li></ul><p>Dette inkluderer alle funksjoner disse skal bruke unntatt:<ul><li>sekundære rømningsveier som ikke har annen funksjon enn rømningsvei</li><li>arealer som kun brukes i drift, eller ikke brukes av publikum eller arbeidstakere</li></ul>Har bygningen kun én trapp vil dette normalt være en trapp som er del av hovedløsning.</p>",
+                      "text": "<p>Hovedløsningen er den delen av byggverket som skal kunne brukes av:<ul><li>publikum</li><li>arbeidstakere som har arbeidsplassen sin i bygningen</li></ul><p>Dette inkluderer alle funksjoner disse skal bruke unntatt:<ul><li>sekundære rømningsveier som ikke har annen funksjon enn rømningsvei</li><li>arealer som kun brukes i drift, eller ikke brukes av publikum eller arbeidstakere</li></ul>Har bygningen kun én trapp vil dette være en trapp som er del av hovedløsning.</p>",
                       "options": [
                         {
                           "id": "aopHovedlosning.ja",
@@ -329,7 +849,7 @@
                         {
                           "id": "aopHovedlosning.nei",
                           "type": "Answer",
-                          "heading": "Nei, trappa skal kun brukes til drift eller som sekundær rømningsvei ",
+                          "heading": "Nei, denne trappa skal kun brukes til drift eller som sekundær rømningsvei",
                           "text": "",
                           "value": "nei"
                         }
@@ -389,7 +909,7 @@
                                   "type": "Result",
                                   "text": "ResultatHovedtrappAOP",
                                   "heading": "Hovedtrapp i arbeids- og publikumsbygning",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en arbeids- og publikumsbygning. <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en arbeids- og publikumsbygning. <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -503,7 +1023,7 @@
                           "id": "aopTrappebruk",
                           "property": "aopTrappebruk",
                           "type": "Radio",
-                          "heading": "Hva skal trappa brukes til?",
+                          "heading": "Hva skal denne delen av trappa brukes til?",
                           "options": [
                             {
                               "id": "aopTrappebruk.sekundaer",
@@ -661,20 +1181,20 @@
                           "id": "fritidsbolig",
                           "property": "fritidsbolig",
                           "type": "Radio",
-                          "heading": "Hva skal  trappa brukes til?",
+                          "heading": "Hva skal trappa være adkomst til?",
                           "options": [
                             {
                               "id": "fritidsbolig.romning",
                               "type": "Answer",
-                              "heading": "Skal brukes til daglig eller til rømning",
-                              "text": "For eksempel trapp som skal brukes av beboere og  gjester til daglig eller til rømning.",
+                              "heading": "Skal forbinde etasjer eller areal som er måleverdig, eller brukes til rømning",
+                              "text": "For eksempel trapp som forbinder første og andre etasje, hvor begge etasjene skal ha måleverdig areal.",
                               "value": "romning"
                             },
                             {
                               "id": "fritidsbolig.drift",
                               "type": "Answer",
-                              "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
-                              "text":"For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilasjonskanal, installasjoner på tak eller skorstein på tak.",
+                              "heading": "Skal utelukkende være adkomst til areal som ikke er måleverdig, og/eller brukes til bygningens drift",
+                              "text":"For eksempel trapp, leider eller stige til skorstein, kryploft uten romfunksjoner eller være tilkomst til bygningstekniske installasjoner.",
                               "value": "drift"
                             }
                           ]
@@ -694,7 +1214,7 @@
                                   "id": "fritidsbolig.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, og/eller er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -727,7 +1247,7 @@
                                   "type": "Result",
                                   "text": "ResultatFritidsboligen",
                                   "heading": "Trapp i fritidsbolig med én boenhet",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i fritidsbolig med én boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/TFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i fritidsbolig med én boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/TFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -762,20 +1282,20 @@
                           "id": "boligbygningDrift",
                           "property": "boligbygningDrift",
                           "type": "Radio",
-                          "heading": "Hva skal  trappa brukes til?",
+                          "heading": "Hva skal trappa være adkomst til?",
                           "options": [
                             {
                               "id": "boligbygningDrift.romning",
                               "type": "Answer",
-                              "heading": "Skal brukes til daglig eller til rømning",
-                              "text": "For eksempel trapp som skal brukes av beboere og  gjester til daglig eller til rømning.",
+                              "heading": "Skal forbinde etasjer eller areal som er måleverdig, eller brukes til rømning",
+                              "text": "For eksempel trapp som forbinder første og andre etasje, hvor begge etasjene skal ha måleverdig areal.",
                               "value": "romning"
                             },
                             {
                               "id": "boligbygningDrift.drift",
                               "type": "Answer",
-                              "heading": "Skal utelukkende brukes til bygningens drift eller være adkomst til areal som ikke er måleverdig",
-                              "text":"For eksempel trapp, leider eller stige som kun skal være tilkomst til bygningsteknisk installasjon, sjakter, hulrom, kryploft, vedlikehold av ventilasjonskanal, installasjoner på tak eller skorstein på tak.",
+                              "heading": "Skal utelukkende være adkomst til areal som ikke er måleverdig, og/eller brukes til bygningens drift",
+                              "text":"For eksempel trapp, leider eller stige til skorstein, kryploft uten romfunksjoner eller være tilkomst til bygningstekniske installasjoner.",
                               "value": "drift"
                             }
                           ]
@@ -795,7 +1315,7 @@
                                   "id": "boligbygningDrift.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, eller som kun er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en trapp, leider eller en stige til et ikke-målbart areal, og/eller er til byggverkets drift. <a href=\"https://trappesjekk.dibk.no/checklist/TLSD/\" target=\"_blank\"><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "type": "Reference",
@@ -829,7 +1349,7 @@
                             {
                               "id": "boligbygningFellesareal.ja",
                               "type": "Answer",
-                              "heading": "Trapp i fellesareal",
+                              "heading": "Trapp i fellesareal",
                               "text": "Alle trapper som skal betjene flere boenheter inkludert utvendige trapper. For eksempel trapp til felles inngang, felles bodareal eller trapp til svalgang som betjener flere.",
                               "value": "ja"
                             },
@@ -864,7 +1384,7 @@
                                   "type": "Result",
                                   "text": "ResultatHovedlosningAOP",
                                   "heading": "Trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://trappesjekk.dibk.no/checklist/THPIH/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en trapp i hovedløsning i arbeids- og publikumsbygning som ikke er hovedtrapp. <a href=\"https://trappesjekk.dibk.no/checklist/THPIH/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -890,7 +1410,7 @@
                           "property": "boligbygningInngangsplan",
                           "type": "Radio",
                           "heading": "Er det krav om tilgjengelig inngangsplan i boligen?",
-                          "text": "<p>Dette gjelder som regel:<ul><li>boenheter i boligbygninger som har krav om heis</li><li>boenheter som har alle hovedfunksjoner på inngangsplanet til bygningen</li></ul></p><p>Det er gjort enkelte unntak i TEK17 § 8-5 og TEK17 § 12-2.</p>",
+                          "text": "<p>Dette gjelder som regel:<ul><li>boenheter i boligbygninger som har krav om heis</li><li>boenheter som har alle hovedfunksjoner på inngangsplanet til bygningen</li></ul></p><p>Det er gjort enkelte unntak i <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/8/8-5/\" target=\"_blank\">TEK17 § 8-5</a> og <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/i/12-2/\" target=\"_blank\">TEK17 § 12-2</a>.</p>",
                           "options": [
                             {
                               "id": "boligbygningInngangsplan.ja",
@@ -930,7 +1450,7 @@
                                   "type": "Result",
                                   "text": "ResultatInterntrappTilgjengelig",
                                   "heading": "Trapp internt i boenhet - tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet.<a href=\"https://trappesjekk.dibk.no/checklist/TIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det er krav om tilgjengelighet.<a href=\"https://trappesjekk.dibk.no/checklist/TIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -954,7 +1474,7 @@
                                   "type": "Result",
                                   "text": "ResultatInterntrappTilgjengelig",
                                   "heading": "Trapp internt i boenhet - ikke-tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://trappesjekk.dibk.no/checklist/TIIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere trapp internt i boenhet eller utvendig trapp som kun betjener én boenhet, hvor det ikke er krav om tilgjengelighet. <a href=\"https://trappesjekk.dibk.no/checklist/TIIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -978,20 +1498,20 @@
                           "id": "boligbygningTrappebruk",
                           "property": "boligbygningTrappebruk",
                           "type": "Radio",
-                          "heading": "Hva skal trappa brukes til?",
+                          "heading": "Hva slags type trapp skal dette være?",
                           "text": "",
                           "options": [
                             {
                               "id": "boligbygningTrappebruk.hovedtrapp",
                               "type": "Answer",
                               "heading": "Hovedtrapp",
-                              "text": "<p>Trapper som skal brukes av beboere og gjester til daglig. Dette inkluderer:<ul><li> hovedrømningsvei</li><li>sekundære rømningsveier som også har andre formål</li><li>trapp til felles bodareal og andre fellesområder</li></ul></p>",
+                              "text": "<p>Trapp som skal brukes av beboere og gjester til vanlig. Dette inkluderer:<ul><li> hovedrømningsvei</li><li>sekundære rømningsveier som også har andre formål</li><li>trapp til felles bodareal og andre fellesområder</li></ul></p>",
                               "value": "hovedtrapp"
                             },
                             {
                               "id": "boligbygningTrappebruk.sekundaer",
                               "type": "Answer",
-                              "heading": "Sekundær rømningsvei som ikke prosjekteres for daglig bruk",
+                              "heading": "Sekundær rømningsvei som ikke prosjekteres for vanlig bruk",
                                "text": "Rømningstrapp som kun prosjekteres for å brukes i en rømningssituasjon.",
                               "value": "sekundaer"
                             }
@@ -1015,7 +1535,7 @@
                           "property": "boligbygningHovedtrapp",
                           "type": "Radio",
                           "heading": "Er det krav om minst én tilgjengelig boenhet i boligbygningen?",
-                          "text": "<p>Dette gjelder som regel:<ul><li>boenheter i boligbygninger som har krav om heis</li><li>boenheter som har alle hovedfunksjoner på inngangsplanet til bygningen</li></ul></p><p>Det er gjort enkelte unntak i TEK17 § 8-5 og TEK17 § 12-2.</p>",
+                          "text": "<p>Dette gjelder som regel:<ul><li>boenheter i boligbygninger som har krav om heis</li><li>boenheter som har alle hovedfunksjoner på inngangsplanet til bygningen</li></ul></p><p>Det er gjort enkelte unntak i <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/8/8-5/\" target=\"_blank\">TEK17 § 8-5</a> og <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/i/12-2/\" target=\"_blank\">TEK17 § 12-2</a>.</p>",
                           "options": [
                             {
                               "id": "boligbygningHovedtrapp.ja",
@@ -1055,7 +1575,7 @@
                                   "type": "Result",
                                   "text": "resultatBoligSekundaerTilgjengelig",
                                   "heading": "Hovedtrapp flere boenheter - tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/HFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",                                  
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/HFB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",                                  
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1079,7 +1599,7 @@
                                   "type": "Result",
                                   "text": "resultatHovedtrappFlereIkkeTilgjengelig",
                                   "heading": "Hovedtrapp flere boenheter - ikke-tilgjengelig bolig",
-                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p>Ut fra dine svar skal du prosjektere en hovedtrapp i en boligbygning hvor det ikke er noen boenheter som har krav til tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTIB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1105,7 +1625,7 @@
                           "property": "boligbygningSekundaer",
                           "type": "Radio",
                           "heading": "Er det krav om minst én tilgjengelig boenhet i boligbygningen?",
-                          "text": "<p>Dette gjelder som regel:<ul><li>boenheter i boligbygninger som har krav om heis</li><li>boenheter som har alle hovedfunksjoner på inngangsplanet til bygningen</li></ul></p><p>Det er gjort enkelte unntak i TEK17 § 8-5 og TEK17 § 12-2.</p>",
+                          "text": "<p>Dette gjelder som regel:<ul><li>boenheter i boligbygninger som har krav om heis</li><li>boenheter som har alle hovedfunksjoner på inngangsplanet til bygningen</li></ul></p><p>Det er gjort enkelte unntak i <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/8/8-5/\" target=\"_blank\">TEK17 § 8-5</a> og <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/12/i/12-2/\" target=\"_blank\">TEK17 § 12-2</a>.</p>",
                           "options": [
                             {
                               "id": "boligbygningSekundaer.ja",
@@ -1145,7 +1665,7 @@
                                   "type": "Result",
                                   "text": "resultatSekundaerRomningstrappTilgjengelig",
                                   "heading": "Sekundær rømningstrapp - tilgjengelig bolig",
-                                  "lead": "<p> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine nederst.</p>",
+                                  "lead": "<p> Ut fra dine svar skal du prosjektere en sekundær rømningstrapp i en boligbygning hvor det er krav om minst én tilgjengelig boenhet. <a href=\"https://trappesjekk.dibk.no/checklist/SRTB/\" target=\"_blank\"><br /><br /><strong>Klikk her for en sjekkliste med kravene til denne trappetypen.</strong></a><br /><br />Du finner en oppsummering av svarene dine under. </p>",
                                   "errorheading": "Du har ikke svart på alle spørsmålene",
                                   "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
                                 }
@@ -1183,9 +1703,221 @@
       ]
     },
     {
+      "type": "Page",
+      "heading": "Kombinasjonsbygg",
+      "id": "kombo",
+      "children": [
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "bygningsType",
+                "operator": "eq",
+                "value": "komboUTEAVDRIFT"
+              },
+              "children": [
+                {
+                  "type": "Group",
+                  "id": "komboGroup",
+                  "property": "komboGroup",
+                  "simple": false,
+                  "show": {
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "bygningsType",
+                        "operator": "eq",
+                        "value": "kombo"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "id": "komboDrift",
+                      "property": "komboDrift",
+                      "type": "Radio",
+                      "heading": "Før du går videre må du dele opp trappa ut fra hvem som skal bruke de ulike delene av trappa",
+                      "text": "Dersom en eller flere deler av trappa ?",
+                      "options": [
+                        {
+                          "id": "komboDrift.naering",
+                          "type": "Answer",
+                          "heading": "Hele trap tilknytte et arbeids- og publikumbygg",
+                          "value": "naering"
+                        },
+                        {
+                          "id": "komboDrift.bolig",
+                          "type": "Answer",
+                          "heading": "Funksjoner tilknyttet bolig",
+                          "value": "bolig"
+                        },
+                        {
+                          "id": "komboDrift.drift",
+                          "type": "Answer",
+                          "heading": "Funksjoner tilknyttet drift",
+                          "value": "drift"
+                        },
+                        {
+                          "id": "komboDrift.begge",
+                          "type": "Answer",
+                          "heading": "Flere funksjoner, for eksempel både  funksjoner for næring og bolig",
+                          "value": "begge"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "komboDriftResultat.branch",
+                      "type": "Branch",
+                      "branches": [
+                        {
+                          "test": {
+                            "field": "komboDrift",
+                            "operator": "eq",
+                            "value": "naering"
+                          },
+                          "children": [
+                            {
+                              "id": "komboDriftResultat.text",
+                              "type": "Text",
+                              "warning": true,
+                              "text": "Dersom kun funksjoner tilknyttet næring skal bruke trappa, kan du starte veiviseren på nytt og velge <strong>«Kun som arbeids- og bygningsbygning»</strong>. Det vil da være disse kravene som gjelder for trappa.<br /><br />"
+                            },
+                            {
+                              "type": "Reference",
+                              "nodeId": "resultatTakk"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "komboDriftResultat.branch",
+                      "type": "Branch",
+                      "branches": [
+                        {
+                          "test": {
+                            "field": "komboDrift",
+                            "operator": "eq",
+                            "value": "bolig"
+                          },
+                          "children": [
+                            {
+                              "id": "komboDriftResultat.text",
+                              "type": "Text",
+                              "warning": true,
+                              "text": "Dersom kun funksjoner tilknyttet bolig skal bruke trappa, kan du starte veiviseren på nytt og velge stien <strong>«Kun som bolig».</strong> Det vil da være disse kravene som gjelder for trappa.<br /><br />"
+                            },
+                            {
+                              "type": "Reference",
+                              "nodeId": "resultatTakk"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "komboDriftResultat.branch",
+                      "type": "Branch",
+                      "branches": [
+                        {
+                          "test": {
+                            "field": "komboDrift",
+                            "operator": "eq",
+                            "value": "begge"
+                          },
+                          "children": [
+                            {
+                              "id": "komboDriftResultat.text",
+                              "type": "Text",
+                              "warning": true,
+                              "text": "Start veiviseren på nytt og velg <strong>«Kun som arbeids- og publikumsbygning»</strong> for alle de delene av trappa som skal benyttes av enten næring, eller næring i kombinasjon med boligfunksjoner.<br /><br />Velg stien <strong>«Kun til bolig»</strong> for de delene av trappa kun skal benyttes av boligfunksjoner.<br /><br />"
+                            },
+                            {
+                              "type": "Reference",
+                              "nodeId": "resultatTakk"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Branch",
+      "branches": [
+        {
+          "test": {
+            "type": "or",
+            "clauses": [
+              {
+                "field": "funksjonerTilTrapp",
+                "operator": "eq",
+                "value": "aop"
+              },
+              {
+                "field": "deAndreDelene",
+                "operator": "eq",
+                "value": "bo"
+              },
+              {
+                "field": "deAndreDelene",
+                "operator": "eq",
+                "value": "bodrift"
+              },
+              {
+                "field": "deAndreDelene",
+                "operator": "eq",
+                "value": "drift"
+              },
+              {
+                "field": "neiIkkeArbeid",
+                "operator": "eq",
+                "value": "bo"
+              },
+              {
+                "field": "neiIkkeArbeid",
+                "operator": "eq",
+                "value": "bodrift"
+              },
+              {
+                "field": "neiIkkeArbeid",
+                "operator": "eq",
+                "value": "drift"
+              }
+            ]
+          },
+          "children": [
+            {
+              "id": "resultatTakk",
+              "type": "Result",
+              "heading": "Takk for at du prøvde veiviseren",
+              "lead": "<p>Dersom du ønsker kan du ta veiviseren på nytt. <br/>Du finner en oppsummering av svarene dine under.</p>",
+              "errorheading": "Du har ikke svart på alle spørsmålene",
+              "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "Result",
       "id": "resultatIkkeFerdig",
       "heading": "Du skal aldri se denne resultatsiden",
+      "errorheading": "Du har ikke svart på alle spørsmålene",
+      "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
+    },
+    {
+      "type": "Result",
+      "id": "resultatTakkOLD",
+      "heading": "Takk for at du prøvde veiviseren",
+      "lead": "<p>Dersom du ønsker kan du ta veiviseren på nytt. <br/>Du finner en oppsummering av svarene dine under.</p>",
       "errorheading": "Du har ikke svart på alle spørsmålene",
       "errorlead": "<p>Vi kan derfor ikke gi deg svar på om hvilke krav som gjelder akkurat din trapp. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.</p>"
     }
