@@ -35,7 +35,7 @@ function Intro({ close, data }) {
         <Primitives.Button.MainButton type="button" onClick={() => close()}>
           Sett i gang
         </Primitives.Button.MainButton>
-        <Primitives.Paragraphs.P><br/><a href="https://dibk-tekcheck-api.azurewebsites.net/api/sjekkliste">API (for utviklere)</a></Primitives.Paragraphs.P>
+        <Primitives.Paragraphs.P><br/><a href="https://trappesjekk-api.dibk.no/api/sjekkliste">API (for utviklere)</a></Primitives.Paragraphs.P>
       </IntroMain>
     </Primitives.Wizard>
   );
