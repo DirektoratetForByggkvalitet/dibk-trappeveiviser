@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Veiviser - trapp",
+    "title": "Sjekk kravene til trapp",
     "name": "trapp",
-    "footer": "Veiviser - trapp"
+    "footer": "Sjekk kravene til trapp"
   },
   "schema": [
     {
@@ -21,18 +21,21 @@
               "id": "trappePlassering.ja",
               "type": "Answer",
               "heading": "Innendørs",
+              "text": "Trapp inne i en bygning.",
               "value": "innendors"
             },
             {
               "id": "trappePlassering.nei",
               "type": "Answer",
-              "heading": "Utendørs, men fysisk forbundet med et byggverk",
+              "heading": "Utendørs, men fysisk forbundet med byggverket",
+              "text": "For eksempel trapp som går fra veranda og ned til terreng.",
               "value": "utendors"
             },
             {
               "id": "trappePlassering.selvstendig",
               "type": "Answer",
-              "heading": "Utendørs, men som en selvstendig konstruksjon",
+              "heading": "Utendørs, men en selvstendig konstruksjon",
+              "text": "Trapp i et opparbeidet uteareal.",
               "value": "selvstendig"
             }
           ]
@@ -55,7 +58,7 @@
                     {
                       "id": "trappePlassering.text",
                       "type": "Text",
-                      "text": "Veiviseren dekker dessverre ikke utendørs trapper som er selvstendige konstruksjoner. Du kan lese mer om kravene til trapp i uteareal i <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/8/8-9/\" target=\"_blank\">TEK17 § 8-9.</a>"
+                      "text": "Veiviseren dekker dessverre ikke utendørs trapper som er selvstendige konstruksjoner. Du kan lese mer om kravene til trapp i uteareal i <a href=\"https://dibk.no/regelverk/byggteknisk-forskrift-tek17/8/8-9/\" target=\"_blank\">TEK17 § 8-9.</a><p>Dersom trappa for eksempel skal være i et friluftsområde som ikke er opparbeidet, er den ikke regulert av TEK17.</p>"
                     }
                   ]
                 },
@@ -836,8 +839,8 @@
                       "id": "aopHovedlosning",
                       "property": "aopHovedlosning",
                       "type": "Radio",
-                      "heading": "Skal trappa være en del av hovedløsningen?",
-                      "text": "<p>Hovedløsningen er den delen av byggverket som skal kunne brukes av:<ul><li>publikum</li><li>arbeidstakere som har arbeidsplassen sin i bygningen</li></ul><p>Dette inkluderer alle funksjoner disse skal bruke unntatt:<ul><li>sekundære rømningsveier som ikke har annen funksjon enn rømningsvei</li><li>arealer som kun brukes i drift, eller ikke brukes av publikum eller arbeidstakere</li></ul>Har bygningen kun én trapp vil dette være en trapp som er del av hovedløsning.</p>",
+                      "heading": "Skal trappa være en del av hovedløsningen?",
+                      "text": "<p>Hovedløsningen er den delen av byggverket som skal kunne brukes av:<ul><li>publikum</li><li>arbeidstakere som har arbeidsplassen sin i bygningen</li></ul><p>Dette inkluderer alle funksjoner disse skal bruke unntatt:<ul><li>sekundære rømningsveier som ikke har annen funksjon enn rømningsvei</li><li>arealer som kun brukes i drift, eller ikke brukes av publikum eller arbeidstakere</li></ul>En arbeids- og publikumsbygning må alltid ha minst én trapp som er del av hovedløsningen. Det kan også være nødvendig med flere.</p>",
                       "options": [
                         {
                           "id": "aopHovedlosning.ja",
@@ -849,7 +852,7 @@
                         {
                           "id": "aopHovedlosning.nei",
                           "type": "Answer",
-                          "heading": "Nei, denne trappa skal kun brukes til drift eller som sekundær rømningsvei",
+                          "heading": "Nei, denne delen av trappa skal kun brukes til drift eller som sekundær rømningsvei",
                           "text": "",
                           "value": "nei"
                         }
@@ -870,7 +873,7 @@
                           "id": "aopEnesteTrapp",
                           "property": "aopEnesteTrapp",
                           "type": "Radio",
-                          "heading": "Er dette den eneste trappa som kan brukes til å nå ett eller flere rom eller funksjoner i hovedløsningen?",
+                          "heading": "Skal trappa være eneste adkomst til et rom eller en funksjon i hovedløsningen?",
                           "text": "",
                           "options": [
                                 {
@@ -902,7 +905,7 @@
                                   "id": "aopEnesteTrapp.text",
                                   "type": "Text",
                                   "warning": true,
-                                  "text": "<strong>Ut fra dine svar skal du en hovedtrapp i en arbeids- og publikumsbygning.  <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
+                                  "text": "<strong>Ut fra dine svar skal du prosjektere en hovedtrapp i en arbeids- og publikumsbygning.  <a href=\"https://trappesjekk.dibk.no/checklist/HAP/\" target=\"_blank\"><br /><br /><br />Klikk her for kravene til denne trappetypen.</a></strong>"
                                 },
                                 {
                                   "id": "resultatHovedtrappAOP",
@@ -935,7 +938,7 @@
                           "property": "aopAdkomst",
                           "type": "Radio",
                           "heading": "Skal trappa være primær adkomst for én eller flere brukere til minst ett rom eller én funksjon i hovedløsningen?",
-                          "text": "<p>Det kan være flere hovedtrapper om ulike rom/funksjoner eller ulike brukere har ulike primære hovedadkomster.</p",
+                          "text": "<p>Det kan være flere hovedtrapper til ett eller flere rom/funksjoner. De ulike brukerne kan ha forskjellige primære hovedadkomster.</p",
                           "options": [
                                 {
                                   "id": "aopAdkomst.ja",
@@ -1182,6 +1185,7 @@
                           "property": "fritidsbolig",
                           "type": "Radio",
                           "heading": "Hva skal trappa være adkomst til?",
+                          "text": "",
                           "options": [
                             {
                               "id": "fritidsbolig.romning",
